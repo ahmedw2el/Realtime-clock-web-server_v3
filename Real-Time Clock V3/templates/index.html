@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WIFI BMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<h1>The Date and Time now </h1>
+<strong id="time_now">-</strong>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+function get_time() {
+	$.ajax( {
+		url: '/time',
+		type: 'POST',
+		data: {
+			
+			},
+			success: function ( call_python ) {
+				$('#time_now').html(call_python)
+				},
+				error: function ( call_python ) {
+					$('#time_now').html(call_python)
+					}
+					} );
+					setTimeout(get_time, 1000);}
+get_time();
+
+</script>
+</body>
+</html>
